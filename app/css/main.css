@@ -1,0 +1,63 @@
+.df {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+}
+
+.center {
+	justify-content: center;
+	-ms-align-items: center;
+	align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+.rotating-box {
+	width: 400px;
+	height: 400px;
+	margin: 10px auto;
+	perspective: 800px;
+}
+
+.sinble-rd {
+	width: 400px;
+}
+
+.sinble-rd-img {
+	height: 400px;
+	width: 400px;
+}
+
+.single-rd div {
+	position: absolute;
+	width: 400px;
+	height: 400px;
+}
+
+.front-side {
+	transform: translateZ(200px);
+}
+
+.back-side {
+	transform: rotateY(180deg)
+	translateZ(200px);
+}
+
+.left-side {
+	transform: rotateY(-90deg)
+	translateX(-200px);
+		transform-origin: left;
+}
+
+
+https://www.youtube.com/watch?v=Iwo8VYTsujA
