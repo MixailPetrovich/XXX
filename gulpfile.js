@@ -14,7 +14,7 @@ var image        = require('gulp-image');
 
 gulp.task('css', function() { 
 	console.log('---------- Обработка CSS');
-	return gulp.src('app/css/**/*.css')
+	return gulp.src('src/css/**/*.css')
         .pipe(sourcemaps.init())
         .pipe(autoprefixer({
             browsers: ['last 4 versions']
@@ -31,7 +31,7 @@ gulp.task('css', function() {
 
 gulp.task('js', function() {
 	console.log('---------- Обработка JS');
-    return gulp.src('app/js/**/*.js')
+    return gulp.src('src/js/**/*.js')
         .pipe(concat("js.js")) 
         .pipe(rename("js.js"))
         .pipe(gulp.dest('dist/js/'))
@@ -42,7 +42,7 @@ gulp.task('js', function() {
 
 gulp.task('img', function() {
     console.log('---------- Обработка img');
-    return  gulp.src('app/img/**/*') 
+    return  gulp.src('src/img/**/*') 
         .pipe(gulp.dest('dist/img/'))
 
 });
@@ -54,7 +54,7 @@ gulp.task('browser-sync', function() {
     console.log('---------- Обработка browser-sync');
    browserSync.init({
         server: {
-            baseDir: './'
+            
         },
    });
 });
@@ -63,7 +63,7 @@ gulp.task('browser-sync', function() {
 
 gulp.task('image', function () {
     console.log('---------- Обработка image');
-  gulp.src('./app/img/*')
+  gulp.src('./src/img/*')
     .pipe(image({
       pngquant: true,
       optipng: false,
@@ -76,16 +76,16 @@ gulp.task('image', function () {
       concurrent: 10,
       quiet: true // defaults to false
     }))
-    .pipe(gulp.dest('./dist/img'));
+    .pipe(gulp.dest('dist/img'));
 });
 
 // .........................................................watch
 
 gulp.task('watch', ['browser-sync', 'image', 'css', 'js'], function () {
     console.log('---------- Обработка Watch');
-    gulp.watch('app/css/**/*.css', ['css']); 
+    gulp.watch('src/css/**/*.css', ['css']); 
     gulp.watch('**/*.html', browserSync.reload); 
-    gulp.watch('app/js/**/*.js', ['js'])
+    gulp.watch('src/js/**/*.js', ['js'])
     gulp.watch("*.html").on('change', browserSync.reload);
 });
 
